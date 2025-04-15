@@ -71,8 +71,16 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-poppins;
     font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-poppins;
   }
   h1 {
     @apply text-5xl md:text-6xl lg:text-7xl font-medium leading-tight;
@@ -84,7 +92,7 @@
     @apply text-xl md:text-2xl font-medium leading-tight;
   }
   p {
-    @apply text-base md:text-lg leading-relaxed;
+    @apply text-base md:text-lg leading-relaxed font-poppins;
   }
 }
 
@@ -186,4 +194,13 @@
   opacity: 0;
   transform: scale(0.95);
   transition: opacity 200ms ease-in, transform 200ms ease-in;
+}
+
+/* Font family utility classes */
+.font-poppins {
+  font-family: var(--font-poppins);
+}
+
+.font-inter {
+  font-family: var(--font-inter);
 }

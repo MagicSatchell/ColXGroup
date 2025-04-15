@@ -7,6 +7,16 @@ import AnimatedStatCard from "@/components/animated-stat-card"
 import { NewsScroller } from "@/components/news-scroller"
 import { TechnologyScroller } from "@/components/technology-scroller"
 import FadeInSection from "@/components/fade-in-section"
+import CountUp from "react-countup"
+
+const CountUpAnimation = ({
+  value,
+  prefix = "",
+  suffix = "",
+  className,
+}: { value: number; prefix?: string; suffix?: string; className?: string }) => {
+  return <CountUp start={0} end={value} duration={2} prefix={prefix} suffix={suffix} className={className} />
+}
 
 export default function Home() {
   return (
@@ -17,15 +27,17 @@ export default function Home() {
           <Image src="/colx-desktop-bg.png" alt="Background" fill className="object-cover" priority />
         </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 md:py-32 lg:py-40 relative z-10 text-center">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-medium mb-6">
-            Collect Smarter.
-            <br className="hidden xs:block" />
-            Not Harder.
-          </h1>
-          <p className="max-w-2xl mx-auto text-gray-300 mb-8 text-base sm:text-lg">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ante nec ante placerat ultricies at
-            magna. Vestibulum sed consequat massa, eget fermentum lorem.
-          </p>
+          <FadeInSection>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-medium">
+              Collect Smarter.
+              <br />
+              Not Harder.
+            </h1>
+            <p className="max-w-2xl mx-auto text-gray-300 mb-8 text-base sm:text-lg mt-6">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ante nec ante placerat ultricies at
+              magna. Vestibulum sed consequat massa, eget fermentum lorem.
+            </p>
+          </FadeInSection>
         </div>
       </section>
 
@@ -34,7 +46,14 @@ export default function Home() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             <FadeInSection>
-              <StatCard icon={<BarChartIcon />} value="€191bn" description="under management" buttonText="About us" />
+              <StatCard
+                icon={<BarChartIcon />}
+                value="191"
+                prefix="€"
+                suffix="bn"
+                description="under management"
+                buttonText="About us"
+              />
             </FadeInSection>
             <FadeInSection delay={200}>
               <StatCard
@@ -55,7 +74,8 @@ export default function Home() {
             <FadeInSection delay={600}>
               <StatCard
                 icon={<MoonIcon />}
-                value="130+"
+                value="130"
+                suffix="+"
                 description="Private Equity portfolio companies"
                 buttonText="Our portfolio"
               />
@@ -119,7 +139,9 @@ export default function Home() {
       </section>
 
       {/* Technology Section - Updated to be a scroller with loading animations */}
-      <TechnologyScroller />
+      <FadeInSection>
+        <TechnologyScroller />
+      </FadeInSection>
 
       {/* News Section - Replaced with NewsScroller */}
       <FadeInSection>
@@ -237,32 +259,6 @@ function MoonIcon() {
   )
 }
 
-function StatCard({
-  icon,
-  value,
-  description,
-  buttonText,
-}: {
-  icon: React.ReactNode
-  value: string
-  description: string
-  buttonText: string
-}) {
-  return (
-    <Card className="p-6 flex flex-col items-center text-center">
-      {icon}
-      <h3 className="text-3xl font-medium text-[#0d2c4b] mt-4">{value}</h3>
-      <p className="text-gray-600 mb-6">{description}</p>
-      <Button
-        variant="outline"
-        className="text-[#3CAEA3] border-[#3CAEA3] hover:bg-[#3CAEA3] hover:text-white transition-colors animated-button"
-      >
-        {buttonText}
-      </Button>
-    </Card>
-  )
-}
-
 function PoundIcon() {
   return (
     <div className="w-12 h-12 text-[#3CAEA3] mb-4">
@@ -344,5 +340,40 @@ function UsersIcon() {
         <path d="M16 3.13a4 4 0 0 1 0 7.75" />
       </svg>
     </div>
+  )
+}
+
+function StatCard({
+  icon,
+  value,
+  prefix = "",
+  suffix = "",
+  description,
+  buttonText,
+}: {
+  icon: React.ReactNode
+  value: string
+  prefix?: string
+  suffix?: string
+  description: string
+  buttonText: string
+}) {
+  return (
+    <Card className="p-6 flex flex-col items-center text-center h-full">
+      {icon}
+      <CountUpAnimation
+        value={Number.parseInt(value.replace(/[^\d]/g, ""), 10)}
+        prefix={prefix}
+        suffix={suffix}
+        className="text-3xl font-medium text-[#0d2c4b] mt-4"
+      />
+      <p className="text-gray-600 mb-6 flex-grow">{description}</p>
+      <Button
+        variant="outline"
+        className="text-[#3CAEA3] border-[#3CAEA3] hover:bg-[#3CAEA3] hover:text-white transition-colors animated-button mt-auto"
+      >
+        {buttonText}
+      </Button>
+    </Card>
   )
 }

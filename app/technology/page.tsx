@@ -4,6 +4,11 @@ import FadeInSection from "@/components/fade-in-section"
 import Link from "next/link"
 import ProductHeader from "@/components/product-header"
 
+// Custom CSS for black logos
+const blackLogoStyle = {
+  filter: "brightness(0) saturate(100%)",
+}
+
 export default function TechnologyPage() {
   return (
     <main className="flex min-h-screen flex-col">
@@ -38,16 +43,17 @@ export default function TechnologyPage() {
                 <Image src="/deep-blue-dotscape.png" alt="ColXSys Core" fill className="object-contain" />
               </div>
               <div>
-                <div className="flex items-center mb-4">
-                  <div className="w-8 h-8 mr-3">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#3CAEA3]">
-                      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
-                      <path d="M12 6v12M6 12h12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                    </svg>
+                <div className="mb-6">
+                  <div className="h-12 w-auto relative">
+                    <Image
+                      src="/logos/colx-one.svg"
+                      alt="ColXSys One logo"
+                      width={180}
+                      height={48}
+                      className="object-contain object-left"
+                      style={blackLogoStyle}
+                    />
                   </div>
-                  <h2 className="text-2xl md:text-3xl font-medium">
-                    ColXSys <span className="text-[#3CAEA3]">Core</span>
-                  </h2>
                 </div>
                 <p className="text-gray-600 mb-4">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis eros nec diam dictum ultrices ut
@@ -67,16 +73,17 @@ export default function TechnologyPage() {
                 <Image src="/sunset-cityscape.png" alt="ColXSys Visit" fill className="object-contain" />
               </div>
               <div className="md:order-1">
-                <div className="flex items-center mb-4">
-                  <div className="w-8 h-8 mr-3">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#3CAEA3]">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" strokeWidth="2" />
-                      <circle cx="12" cy="10" r="3" stroke="currentColor" strokeWidth="2" />
-                    </svg>
+                <div className="mb-6">
+                  <div className="h-12 w-auto relative">
+                    <Image
+                      src="/logos/colx-visit.svg"
+                      alt="ColXSys Visit logo"
+                      width={180}
+                      height={48}
+                      className="object-contain object-left"
+                      style={blackLogoStyle}
+                    />
                   </div>
-                  <h2 className="text-2xl md:text-3xl font-medium">
-                    ColXSys <span className="text-[#3CAEA3]">Visit</span>
-                  </h2>
                 </div>
                 <p className="text-gray-600 mb-4">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis eros nec diam dictum ultrices ut
@@ -96,16 +103,17 @@ export default function TechnologyPage() {
                 <Image src="/minimalist-workspace.png" alt="ColXSys Mobile" fill className="object-contain" />
               </div>
               <div>
-                <div className="flex items-center mb-4">
-                  <div className="w-8 h-8 mr-3">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#3CAEA3]">
-                      <rect x="5" y="2" width="14" height="20" rx="2" stroke="currentColor" strokeWidth="2" />
-                      <path d="M12 18h.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                    </svg>
+                <div className="mb-6">
+                  <div className="h-12 w-auto relative">
+                    <Image
+                      src="/logos/colx-web.svg"
+                      alt="ColXSys Web logo"
+                      width={180}
+                      height={48}
+                      className="object-contain object-left"
+                      style={blackLogoStyle}
+                    />
                   </div>
-                  <h2 className="text-2xl md:text-3xl font-medium">
-                    ColXSys <span className="text-[#3CAEA3]">Mobile</span>
-                  </h2>
                 </div>
                 <p className="text-gray-600 mb-4">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis eros nec diam dictum ultrices ut
@@ -125,26 +133,17 @@ export default function TechnologyPage() {
                 <Image src="/sunset-cityscape-river.png" alt="ColXSys Cloud" fill className="object-contain" />
               </div>
               <div className="md:order-1">
-                <div className="flex items-center mb-4">
-                  <div className="w-8 h-8 mr-3">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#3CAEA3]">
-                      <path
-                        d="M18 10h-4V6M6 14h4v4"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10z"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                      />
-                    </svg>
+                <div className="mb-6">
+                  <div className="h-12 w-auto relative">
+                    <Image
+                      src="/logos/colx-cloud.svg"
+                      alt="ColXSys Cloud logo"
+                      width={180}
+                      height={48}
+                      className="object-contain object-left"
+                      style={blackLogoStyle}
+                    />
                   </div>
-                  <h2 className="text-2xl md:text-3xl font-medium">
-                    ColXSys <span className="text-[#3CAEA3]">Cloud</span>
-                  </h2>
                 </div>
                 <p className="text-gray-600 mb-4">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis eros nec diam dictum ultrices ut
@@ -164,21 +163,17 @@ export default function TechnologyPage() {
                 <Image src="/focused-freelancer.png" alt="ColXSys Engine" fill className="object-contain" />
               </div>
               <div>
-                <div className="flex items-center mb-4">
-                  <div className="w-8 h-8 mr-3">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#3CAEA3]">
-                      <path d="M14 3v4a1 1 0 001 1h4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                      <path
-                        d="M17 21h-10a2 2 0 01-2-2V5a2 2 0 012-2h7l5 5v11a2 2 0 01-2 2z"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                      />
-                      <path d="M9 17h6M9 13h6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                    </svg>
+                <div className="mb-6">
+                  <div className="h-12 w-auto relative">
+                    <Image
+                      src="/logos/colx-engine.svg"
+                      alt="ColXSys Engine logo"
+                      width={180}
+                      height={48}
+                      className="object-contain object-left"
+                      style={blackLogoStyle}
+                    />
                   </div>
-                  <h2 className="text-2xl md:text-3xl font-medium">
-                    ColXSys <span className="text-[#3CAEA3]">Engine</span>
-                  </h2>
                 </div>
                 <p className="text-gray-600 mb-4">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis eros nec diam dictum ultrices ut

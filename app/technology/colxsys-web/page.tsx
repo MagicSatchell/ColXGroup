@@ -4,6 +4,11 @@ import FadeInSection from "@/components/fade-in-section"
 import Link from "next/link"
 import ProductHeader from "@/components/product-header"
 
+// Custom CSS for black logos
+const blackLogoStyle = {
+  filter: "brightness(0) saturate(100%)",
+}
+
 export default function ColXSysWebPage() {
   return (
     <main className="flex min-h-screen flex-col">
@@ -97,7 +102,18 @@ export default function ColXSysWebPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-medium mb-6">See ColXSys Web in Action</h2>
+              <div className="mb-6">
+                <div className="h-12 w-auto relative">
+                  <Image
+                    src="/logos/colx-web.svg"
+                    alt="ColXSys Web logo"
+                    width={180}
+                    height={48}
+                    className="object-contain object-left"
+                    style={blackLogoStyle}
+                  />
+                </div>
+              </div>
               <p className="text-gray-600 mb-6">
                 Watch how our web platform streamlines operations, enhances collaboration, and provides powerful
                 insights for your business.
