@@ -1,251 +1,306 @@
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import FadeInSection from "@/components/fade-in-section"
 import Link from "next/link"
-import ProductHeader from "@/components/product-header"
-
-// Custom CSS for black logos
-const blackLogoStyle = {
-  filter: "brightness(0) saturate(100%)",
-}
+import { IconButton } from "@/components/ui/icon-button"
+import { Icon } from "@/components/ui/icon"
+import { TechnologyScroller } from "@/components/technology-scroller"
 
 export default function TechnologyPage() {
   return (
     <main className="flex min-h-screen flex-col">
-      {/* Hero Section */}
+      {/* Hero Section - More dramatic and premium */}
       <section className="relative bg-[#0d2c4b] text-white">
         <div className="absolute inset-0 z-0">
           <Image src="/colx-desktop-bg.png" alt="Technology Background" fill className="object-cover" priority />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0d2c4b]/90 to-[#0d2c4b]/70"></div>
         </div>
-        <div className="container mx-auto px-4 py-24 md:py-32 relative z-10 text-center">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-medium mb-6">Technology</h1>
-          <p className="max-w-3xl mx-auto text-gray-300 mb-8">
-            Nulla reprehenderit ea amet cillum esse aute qui in nulla quis deserunt. In laborum eiusmod qui magna
-            consequat fugiat tempor incididunt incididunt.
-          </p>
-        </div>
-      </section>
-
-      {/* ColXSys Web Header */}
-      <ProductHeader
-        productName="ColXSys"
-        productSubtitle="Web"
-        description="A robust web-based platform for managing operations and integrations across devices."
-      />
-
-      {/* Technology Products */}
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          {/* ColXSys Core */}
-          <FadeInSection>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-24">
-              <div className="relative h-64 md:h-80">
-                <Image src="/deep-blue-dotscape.png" alt="ColXSys Core" fill className="object-contain" />
-              </div>
-              <div>
-                <div className="mb-6">
-                  <div className="h-12 w-auto relative">
-                    <Image
-                      src="/logos/colx-one.svg"
-                      alt="ColXSys One logo"
-                      width={180}
-                      height={48}
-                      className="object-contain object-left"
-                      style={blackLogoStyle}
-                    />
-                  </div>
-                </div>
-                <p className="text-gray-600 mb-4">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis eros nec diam dictum ultrices ut
-                  a massa.
-                </p>
-                <p className="text-gray-600">
-                  Vestibulum sed consequat massa, eget fermentum lacus. In nec felis pulvinar nulla cursus rutrum.
-                </p>
-              </div>
+        <div className="container mx-auto px-4 py-32 md:py-40 relative z-10">
+          <div className="max-w-3xl">
+            <div className="inline-block bg-[#3CAEA3]/20 px-4 py-2 rounded-full mb-6">
+              <span className="text-[#3CAEA3] font-medium">Our Technology</span>
             </div>
-          </FadeInSection>
-
-          {/* ColXSys Visit */}
-          <FadeInSection>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-24">
-              <div className="md:order-2 relative h-64 md:h-80">
-                <Image src="/sunset-cityscape.png" alt="ColXSys Visit" fill className="object-contain" />
-              </div>
-              <div className="md:order-1">
-                <div className="mb-6">
-                  <div className="h-12 w-auto relative">
-                    <Image
-                      src="/logos/colx-visit.svg"
-                      alt="ColXSys Visit logo"
-                      width={180}
-                      height={48}
-                      className="object-contain object-left"
-                      style={blackLogoStyle}
-                    />
-                  </div>
-                </div>
-                <p className="text-gray-600 mb-4">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis eros nec diam dictum ultrices ut
-                  a massa.
-                </p>
-                <p className="text-gray-600">
-                  Vestibulum sed consequat massa, eget fermentum lacus. In nec felis pulvinar nulla cursus rutrum.
-                </p>
-              </div>
-            </div>
-          </FadeInSection>
-
-          {/* ColXSys Mobile */}
-          <FadeInSection>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-24">
-              <div className="relative h-64 md:h-80">
-                <Image src="/minimalist-workspace.png" alt="ColXSys Mobile" fill className="object-contain" />
-              </div>
-              <div>
-                <div className="mb-6">
-                  <div className="h-12 w-auto relative">
-                    <Image
-                      src="/logos/colx-web.svg"
-                      alt="ColXSys Web logo"
-                      width={180}
-                      height={48}
-                      className="object-contain object-left"
-                      style={blackLogoStyle}
-                    />
-                  </div>
-                </div>
-                <p className="text-gray-600 mb-4">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis eros nec diam dictum ultrices ut
-                  a massa.
-                </p>
-                <p className="text-gray-600">
-                  Vestibulum sed consequat massa, eget fermentum lacus. In nec felis pulvinar nulla cursus rutrum.
-                </p>
-              </div>
-            </div>
-          </FadeInSection>
-
-          {/* ColXSys Cloud */}
-          <FadeInSection>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-24">
-              <div className="md:order-2 relative h-64 md:h-80">
-                <Image src="/sunset-cityscape-river.png" alt="ColXSys Cloud" fill className="object-contain" />
-              </div>
-              <div className="md:order-1">
-                <div className="mb-6">
-                  <div className="h-12 w-auto relative">
-                    <Image
-                      src="/logos/colx-cloud.svg"
-                      alt="ColXSys Cloud logo"
-                      width={180}
-                      height={48}
-                      className="object-contain object-left"
-                      style={blackLogoStyle}
-                    />
-                  </div>
-                </div>
-                <p className="text-gray-600 mb-4">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis eros nec diam dictum ultrices ut
-                  a massa.
-                </p>
-                <p className="text-gray-600">
-                  Vestibulum sed consequat massa, eget fermentum lacus. In nec felis pulvinar nulla cursus rutrum.
-                </p>
-              </div>
-            </div>
-          </FadeInSection>
-
-          {/* ColXSys Engine */}
-          <FadeInSection>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              <div className="relative h-64 md:h-80">
-                <Image src="/focused-freelancer.png" alt="ColXSys Engine" fill className="object-contain" />
-              </div>
-              <div>
-                <div className="mb-6">
-                  <div className="h-12 w-auto relative">
-                    <Image
-                      src="/logos/colx-engine.svg"
-                      alt="ColXSys Engine logo"
-                      width={180}
-                      height={48}
-                      className="object-contain object-left"
-                      style={blackLogoStyle}
-                    />
-                  </div>
-                </div>
-                <p className="text-gray-600 mb-4">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis eros nec diam dictum ultrices ut
-                  a massa.
-                </p>
-                <p className="text-gray-600">
-                  Vestibulum sed consequat massa, eget fermentum lacus. In nec felis pulvinar nulla cursus rutrum.
-                </p>
-              </div>
-            </div>
-          </FadeInSection>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-medium mb-6 leading-tight">Innovative Solutions</h1>
+            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+              Our suite of proprietary technology solutions powers our operations and delivers exceptional results for
+              our clients.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Testimonial Section */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      {/* Technology Scroller - Already premium */}
+      <TechnologyScroller />
+
+      {/* Technology Products Section - Premium cards */}
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-            <div className="w-full md:w-1/3">
-              <Image
-                src="/person-laptop.jpeg"
-                alt="Ben Quinn"
-                width={400}
-                height={400}
-                className="rounded-lg shadow-lg"
-              />
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-block bg-[#3CAEA3]/20 px-4 py-2 rounded-full mb-6">
+              <span className="text-[#3CAEA3] font-medium">Our Suite</span>
             </div>
-            <div className="w-full md:w-2/3 bg-[#0d2c4b] text-white p-8 rounded-lg">
-              <p className="mb-6 text-lg">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis eros nec diam dictum ultrices ut a
-                massa. Vestibulum sed consequat massa, eget fermentum lacus.
-              </p>
+            <h2 className="text-3xl md:text-4xl font-medium mb-6">Comprehensive Technology Portfolio</h2>
+            <p className="text-gray-600 leading-relaxed">
+              Discover our range of innovative technology solutions designed to enhance efficiency and deliver results.
+            </p>
+          </div>
+
+          <div className="space-y-24">
+            {/* ColXSys One */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <div className="relative">
+                <div className="absolute -top-6 -left-6 w-24 h-24 bg-[#3CAEA3]/10 rounded-lg"></div>
+                <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-[#3CAEA3]/10 rounded-lg"></div>
+                <div className="relative rounded-lg overflow-hidden shadow-xl">
+                  <Image
+                    src="/deep-blue-dotscape.png"
+                    alt="ColXSys One"
+                    width={600}
+                    height={400}
+                    className="w-full h-auto"
+                  />
+                </div>
+              </div>
+
               <div>
-                <p className="font-medium">Ben Quinn</p>
-                <p className="text-sm text-gray-300">Chief Technology Officer</p>
+                <div className="mb-6">
+                  <Image
+                    src="/logos/colx-one.svg"
+                    alt="ColXSys One logo"
+                    width={180}
+                    height={48}
+                    className="object-contain object-left"
+                    style={{ filter: "brightness(0) saturate(100%)" }}
+                  />
+                </div>
+                <p className="text-gray-600 mb-8 leading-relaxed">
+                  A unified solution integrating all ColXSys services into a single seamless experience. Our platform
+                  streamlines operations, enhances collaboration, and provides powerful insights for your business. With
+                  an intuitive interface designed for efficiency, ColXSys One helps you manage your entire workflow from
+                  a single dashboard.
+                </p>
+                <div className="space-y-4 mb-8">
+                  <div className="flex items-start">
+                    <div className="w-10 h-10 rounded-full bg-[#3CAEA3]/10 flex items-center justify-center mr-4 flex-shrink-0">
+                      <Icon name="Check" className="text-[#3CAEA3] w-5 h-5" />
+                    </div>
+                    <div>
+                      <h3 className="font-medium mb-1">Unified Dashboard</h3>
+                      <p className="text-gray-600">Access all your data and tools in one place</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="w-10 h-10 rounded-full bg-[#3CAEA3]/10 flex items-center justify-center mr-4 flex-shrink-0">
+                      <Icon name="Check" className="text-[#3CAEA3] w-5 h-5" />
+                    </div>
+                    <div>
+                      <h3 className="font-medium mb-1">Real-time Analytics</h3>
+                      <p className="text-gray-600">Make data-driven decisions with instant insights</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="w-10 h-10 rounded-full bg-[#3CAEA3]/10 flex items-center justify-center mr-4 flex-shrink-0">
+                      <Icon name="Check" className="text-[#3CAEA3] w-5 h-5" />
+                    </div>
+                    <div>
+                      <h3 className="font-medium mb-1">Seamless Integration</h3>
+                      <p className="text-gray-600">Works with your existing systems and workflows</p>
+                    </div>
+                  </div>
+                </div>
+                <Link href="/technology/colxsys-one">
+                  <IconButton
+                    icon="ArrowRight"
+                    variant="default"
+                    className="bg-[#0d2c4b] hover:bg-[#164677] transition-colors"
+                  >
+                    Learn More
+                  </IconButton>
+                </Link>
+              </div>
+            </div>
+
+            {/* ColXSys Visit */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <div className="order-1 lg:order-2 relative">
+                <div className="absolute -top-6 -left-6 w-24 h-24 bg-[#3CAEA3]/10 rounded-lg"></div>
+                <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-[#3CAEA3]/10 rounded-lg"></div>
+                <div className="relative rounded-lg overflow-hidden shadow-xl">
+                  <Image
+                    src="/sunset-cityscape.png"
+                    alt="ColXSys Visit"
+                    width={600}
+                    height={400}
+                    className="w-full h-auto"
+                  />
+                </div>
+              </div>
+
+              <div className="order-2 lg:order-1">
+                <div className="mb-6">
+                  <Image
+                    src="/logos/colx-visit.svg"
+                    alt="ColXSys Visit logo"
+                    width={180}
+                    height={48}
+                    className="object-contain object-left"
+                    style={{ filter: "brightness(0) saturate(100%)" }}
+                  />
+                </div>
+                <p className="text-gray-600 mb-8 leading-relaxed">
+                  Manage and optimize on-site visits with ease, ensuring seamless communication and efficiency. Our
+                  mobile-first approach allows field agents to access critical information, capture data, and process
+                  payments on the go. Real-time synchronization keeps everyone updated and improves customer
+                  satisfaction.
+                </p>
+                <div className="space-y-4 mb-8">
+                  <div className="flex items-start">
+                    <div className="w-10 h-10 rounded-full bg-[#3CAEA3]/10 flex items-center justify-center mr-4 flex-shrink-0">
+                      <Icon name="Check" className="text-[#3CAEA3] w-5 h-5" />
+                    </div>
+                    <div>
+                      <h3 className="font-medium mb-1">Mobile-First Design</h3>
+                      <p className="text-gray-600">Optimized for field agents on the move</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="w-10 h-10 rounded-full bg-[#3CAEA3]/10 flex items-center justify-center mr-4 flex-shrink-0">
+                      <Icon name="Check" className="text-[#3CAEA3] w-5 h-5" />
+                    </div>
+                    <div>
+                      <h3 className="font-medium mb-1">Offline Capabilities</h3>
+                      <p className="text-gray-600">Continue working even without internet connection</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="w-10 h-10 rounded-full bg-[#3CAEA3]/10 flex items-center justify-center mr-4 flex-shrink-0">
+                      <Icon name="Check" className="text-[#3CAEA3] w-5 h-5" />
+                    </div>
+                    <div>
+                      <h3 className="font-medium mb-1">Secure Payments</h3>
+                      <p className="text-gray-600">Process transactions safely on-site</p>
+                    </div>
+                  </div>
+                </div>
+                <Link href="/technology/colxsys-visit">
+                  <IconButton
+                    icon="ArrowRight"
+                    variant="default"
+                    className="bg-[#0d2c4b] hover:bg-[#164677] transition-colors"
+                  >
+                    Learn More
+                  </IconButton>
+                </Link>
+              </div>
+            </div>
+
+            {/* ColXSys Web */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <div className="relative">
+                <div className="absolute -top-6 -left-6 w-24 h-24 bg-[#3CAEA3]/10 rounded-lg"></div>
+                <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-[#3CAEA3]/10 rounded-lg"></div>
+                <div className="relative rounded-lg overflow-hidden shadow-xl">
+                  <Image
+                    src="/minimalist-workspace.png"
+                    alt="ColXSys Web"
+                    width={600}
+                    height={400}
+                    className="w-full h-auto"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <div className="mb-6">
+                  <Image
+                    src="/logos/colx-web.svg"
+                    alt="ColXSys Web logo"
+                    width={180}
+                    height={48}
+                    className="object-contain object-left"
+                    style={{ filter: "brightness(0) saturate(100%)" }}
+                  />
+                </div>
+                <p className="text-gray-600 mb-8 leading-relaxed">
+                  A robust web-based platform for managing operations and integrations across devices. Access your
+                  operations dashboard from any device with a fully responsive interface that adapts to all screen
+                  sizes. With enterprise-grade security and real-time analytics, ColXSys Web empowers your team to make
+                  data-driven decisions.
+                </p>
+                <Link href="/technology/colxsys-web">
+                  <IconButton
+                    icon="ArrowRight"
+                    variant="default"
+                    className="bg-[#0d2c4b] hover:bg-[#164677] transition-colors"
+                  >
+                    Learn More
+                  </IconButton>
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Get in Touch Section */}
-      <section className="py-16 md:py-24">
+      {/* Testimonial Section - Premium design */}
+      <section className="py-24 bg-[#0d2c4b] text-white">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <FadeInSection>
-              <Image
-                src="/get-in-touch.png"
-                alt="Team collaborating in office"
-                width={600}
-                height={400}
-                className="rounded-lg shadow-lg"
-              />
-            </FadeInSection>
-            <FadeInSection delay={300}>
-              <div>
-                <h2 className="text-3xl md:text-4xl font-medium mb-6">Get in Touch</h2>
-                <p className="text-gray-600 mb-6">
-                  We're here to help. Whether you have questions about our services, need support with enforcement and
-                  debt recovery, or want to discuss a tailored solution for your organization, our expert team is ready
-                  to assist.
-                </p>
-                <Link href="/contact">
-                  <Button
-                    variant="default"
-                    className="bg-[#0d2c4b] hover:bg-[#164677] transition-colors animated-button"
-                  >
-                    Contact Us
-                  </Button>
-                </Link>
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="mb-8">
+              <Icon name="Quote" className="w-16 h-16 text-[#3CAEA3] mx-auto" />
+            </div>
+            <blockquote className="text-2xl md:text-3xl font-light italic mb-8 leading-relaxed">
+              "The ColXSys platform has revolutionized our operations. The intuitive interface and powerful analytics
+              have significantly improved our efficiency and decision-making process."
+            </blockquote>
+            <div className="flex items-center justify-center">
+              <div className="w-16 h-16 rounded-full overflow-hidden mr-4">
+                <Image src="/person-laptop.jpeg" alt="Client" width={64} height={64} className="object-cover" />
               </div>
-            </FadeInSection>
+              <div className="text-left">
+                <p className="font-medium">Ben Quinn</p>
+                <p className="text-[#3CAEA3]">Chief Technology Officer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Get in Touch Section - Premium design */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <div className="inline-block bg-[#3CAEA3]/20 px-4 py-2 rounded-full mb-6">
+                <span className="text-[#3CAEA3] font-medium">Get in Touch</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-medium mb-6">Ready to Transform Your Operations?</h2>
+              <p className="text-gray-600 mb-8 leading-relaxed">
+                Contact our team today to discuss how our technology solutions can help your organization achieve its
+                goals. We're committed to delivering solutions that drive results and exceed expectations.
+              </p>
+              <Link href="/contact">
+                <IconButton
+                  icon="ArrowRight"
+                  variant="default"
+                  className="bg-[#0d2c4b] hover:bg-[#164677] transition-colors"
+                >
+                  Contact Us
+                </IconButton>
+              </Link>
+            </div>
+
+            <div className="relative">
+              <div className="absolute -top-6 -left-6 w-24 h-24 bg-[#3CAEA3]/10 rounded-lg"></div>
+              <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-[#3CAEA3]/10 rounded-lg"></div>
+              <div className="relative rounded-lg overflow-hidden shadow-xl">
+                <Image
+                  src="/get-in-touch.png"
+                  alt="Team collaborating in office"
+                  width={600}
+                  height={400}
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>

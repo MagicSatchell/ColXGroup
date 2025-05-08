@@ -1,152 +1,260 @@
-import type React from "react"
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import FadeInSection from "@/components/fade-in-section"
 import Link from "next/link"
+import { IconButton } from "@/components/ui/icon-button"
+import { Icon } from "@/components/ui/icon"
+import FadeInSection from "@/components/fade-in-section"
+import { CompanyTimeline } from "@/components/company-timeline"
 
 export default function AboutPage() {
   return (
     <main className="flex min-h-screen flex-col">
-      {/* Hero Section */}
+      {/* Hero Section - More dramatic and premium */}
       <section className="relative bg-[#0d2c4b] text-white">
         <div className="absolute inset-0 z-0">
-          <Image src="/colx-desktop-bg.png" alt="About Us Background" fill className="object-cover" priority />
+          <Image src="/colx-desktop-bg.png" alt="About Background" fill className="object-cover" priority />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0d2c4b]/90 to-[#0d2c4b]/70"></div>
         </div>
-        <div className="container mx-auto px-4 py-24 md:py-32 relative z-10 text-center">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-medium mb-6">About Us</h1>
-          <p className="max-w-3xl mx-auto text-gray-300 mb-8">
-            At ColXGroup, we bring together the expertise of Jacobs, Equita, Ross & Roberts, and Stirling Park under one
-            dynamic umbrella, ensuring a seamless and effective approach to enforcement and debt recovery across the UK.
-          </p>
+        <div className="container mx-auto px-4 py-32 md:py-40 relative z-10">
+          <div className="max-w-3xl">
+            <div className="inline-block bg-[#3CAEA3]/20 px-4 py-2 rounded-full mb-6">
+              <span className="text-[#3CAEA3] font-medium">About Us</span>
+            </div>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-medium mb-6 leading-tight">Our Story</h1>
+            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+              At ColXGroup, we bring together the expertise of Jacobs, Equita, Ross & Roberts, and Stirling Park under
+              one dynamic umbrella, ensuring a seamless and effective approach to enforcement and debt recovery across
+              the UK.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Redefining Enforcement Section */}
-      <section className="py-16 md:py-24">
+      {/* Redefining Enforcement Section - Magazine style layout */}
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <FadeInSection>
-              <div className="relative h-80 md:h-96">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="relative">
+              <div className="absolute -top-6 -left-6 w-24 h-24 bg-[#3CAEA3]/10 rounded-lg"></div>
+              <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-[#3CAEA3]/10 rounded-lg"></div>
+              <div className="relative rounded-lg overflow-hidden shadow-xl">
                 <Image
                   src="/liverpool-waterfront.jpeg"
                   alt="Liverpool Waterfront"
-                  fill
-                  className="object-cover rounded-lg shadow-lg"
+                  width={600}
+                  height={400}
+                  className="w-full h-auto"
                 />
               </div>
-            </FadeInSection>
-            <FadeInSection delay={300}>
-              <div>
-                <h2 className="text-3xl md:text-4xl font-medium mb-6">Redefining Enforcement</h2>
-                <p className="text-gray-600 mb-4">
-                  By combining industry-leading systems, local expertise, and a commitment to ethical enforcement,
-                  ColXGroup provides a truly unique service in today's arena. Whether supporting local authorities,
-                  commercial landlords, or private parking providers, we provide tailored solutions that prioritize
-                  efficiency, transparency, and fairness.
-                </p>
+            </div>
+
+            <div>
+              <div className="inline-block bg-[#3CAEA3]/20 px-4 py-2 rounded-full mb-6">
+                <span className="text-[#3CAEA3] font-medium">Our Mission</span>
               </div>
-            </FadeInSection>
+              <h2 className="text-3xl md:text-4xl font-medium mb-6">Redefining Enforcement</h2>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                By combining industry-leading systems, local expertise, and a commitment to ethical enforcement,
+                ColXGroup provides a truly unique service in today's arena.
+              </p>
+              <p className="text-gray-600 mb-8 leading-relaxed">
+                Whether supporting local authorities, commercial landlords, or private parking providers, we provide
+                tailored solutions that prioritize efficiency, transparency, and fairness.
+              </p>
+              <div className="space-y-4 mb-8">
+                <div className="flex items-start">
+                  <div className="w-10 h-10 rounded-full bg-[#3CAEA3]/10 flex items-center justify-center mr-4 flex-shrink-0">
+                    <Icon name="Check" className="text-[#3CAEA3] w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-medium mb-1">Ethical Approach</h3>
+                    <p className="text-gray-600">We prioritize fairness and transparency in all our interactions.</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-10 h-10 rounded-full bg-[#3CAEA3]/10 flex items-center justify-center mr-4 flex-shrink-0">
+                    <Icon name="Check" className="text-[#3CAEA3] w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-medium mb-1">Innovative Technology</h3>
+                    <p className="text-gray-600">We leverage cutting-edge solutions to enhance efficiency.</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-10 h-10 rounded-full bg-[#3CAEA3]/10 flex items-center justify-center mr-4 flex-shrink-0">
+                    <Icon name="Check" className="text-[#3CAEA3] w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-medium mb-1">Expert Team</h3>
+                    <p className="text-gray-600">Our specialists bring decades of industry experience.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      {/* Timeline Section - Already premium */}
+      <CompanyTimeline />
+
+      {/* Stats Section - Premium cards */}
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-block bg-[#3CAEA3]/20 px-4 py-2 rounded-full mb-6">
+              <span className="text-[#3CAEA3] font-medium">Our Impact</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-medium mb-6">By the Numbers</h2>
+            <p className="text-gray-600 leading-relaxed">
+              Our commitment to excellence has driven significant results across our operations.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <FadeInSection>
-              <StatCard icon={<PoundIcon />} value="£36M+" description="Collections across 2018-2025" />
+              <StatCard
+                icon="PoundSterling"
+                value="£36M+"
+                label="Collections across 2018-2025"
+                color="bg-gradient-to-br from-[#3CAEA3] to-[#2d8a80]"
+              />
             </FadeInSection>
             <FadeInSection delay={200}>
-              <StatCard icon={<BuildingIcon />} value="1" description="Companies across the UK" />
+              <StatCard
+                icon="Building2"
+                value="4"
+                label="Companies across the UK"
+                color="bg-gradient-to-br from-[#0d2c4b] to-[#164677]"
+              />
             </FadeInSection>
             <FadeInSection delay={400}>
-              <StatCard icon={<ServiceIcon />} value="10" description="Debt collection services" />
+              <StatCard
+                icon="FileText"
+                value="10+"
+                label="Debt collection services"
+                color="bg-gradient-to-br from-[#3CAEA3] to-[#2d8a80]"
+              />
             </FadeInSection>
             <FadeInSection delay={600}>
-              <StatCard icon={<SystemIcon />} value="2" description="Industry-leading systems" />
+              <StatCard
+                icon="Laptop"
+                value="2"
+                label="Industry-leading systems"
+                color="bg-gradient-to-br from-[#0d2c4b] to-[#164677]"
+              />
             </FadeInSection>
           </div>
         </div>
       </section>
 
-      {/* Testimonial Section */}
-      <section className="py-16 md:py-24">
+      {/* Testimonial Section - Premium design */}
+      <section className="py-24 bg-[#f8f9fa]">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-            <div className="w-full md:w-1/3">
-              <Image
-                src="/person-laptop.jpeg"
-                alt="Ben Quinn"
-                width={400}
-                height={400}
-                className="rounded-lg shadow-lg"
-              />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+            <div className="md:col-span-1">
+              <div className="relative rounded-lg overflow-hidden shadow-xl h-full">
+                <Image
+                  src="/person-laptop.jpeg"
+                  alt="Ben Quinn"
+                  width={400}
+                  height={600}
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
-            <div className="w-full md:w-2/3 bg-[#0d2c4b] text-white p-8 rounded-lg">
-              <p className="mb-6 text-lg">
+            <div className="md:col-span-2 bg-[#0d2c4b] text-white p-8 md:p-12 rounded-lg shadow-xl">
+              <div className="mb-6">
+                <Icon name="Quote" className="w-12 h-12 text-[#3CAEA3]" />
+              </div>
+              <p className="text-xl mb-8 leading-relaxed">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis eros nec diam dictum ultrices ut a
                 massa. Vestibulum sed consequat massa, eget fermentum lacus.
               </p>
               <div>
-                <p className="font-medium">Ben Quinn</p>
-                <p className="text-sm text-gray-300">Chief Technology Officer</p>
+                <p className="font-medium text-lg">Ben Quinn</p>
+                <p className="text-[#3CAEA3]">Chief Technology Officer</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Meet the Team Section */}
-      <section className="py-16 md:py-24">
+      {/* Meet the Team Section - Premium design */}
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-medium mb-6 text-center">Meet the Team</h2>
-          <p className="text-gray-600 mb-12 text-center max-w-3xl mx-auto">
-            We're a dynamic group of individuals who are passionate about what we do and dedicated to delivering the
-            best results for our clients.
-          </p>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-block bg-[#3CAEA3]/20 px-4 py-2 rounded-full mb-6">
+              <span className="text-[#3CAEA3] font-medium">Our People</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-medium mb-6">Meet the Leadership Team</h2>
+            <p className="text-gray-600 leading-relaxed">
+              We're a dynamic group of individuals who are passionate about what we do and dedicated to delivering the
+              best results for our clients.
+            </p>
+          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <TeamMember name="Simon Jacobs BSc" role="Chief Executive Officer" image="/office-meeting.jpeg" />
-            <TeamMember name="Paula Jordan BA (Hons)" role="Chief Operations Officer" image="/person-laptop.jpeg" />
-            <TeamMember name="Ben Quinn BSc (Hons)" role="Chief Technology Officer" image="/person-laptop.jpeg" />
-            <TeamMember name="Alyn Lewis BPP (Reg)" role="Chief Commercial Officer" image="/office-meeting.jpeg" />
+            <TeamMember name="Simon Jacobs BSc" role="Chief Executive Officer" image="/office-meeting.jpeg" delay={0} />
+            <TeamMember
+              name="Paula Jordan BA (Hons)"
+              role="Chief Operations Officer"
+              image="/person-laptop.jpeg"
+              delay={200}
+            />
+            <TeamMember
+              name="Ben Quinn BSc (Hons)"
+              role="Chief Technology Officer"
+              image="/person-laptop.jpeg"
+              delay={400}
+            />
+            <TeamMember
+              name="Alyn Lewis BPP (Reg)"
+              role="Chief Commercial Officer"
+              image="/office-meeting.jpeg"
+              delay={600}
+            />
           </div>
         </div>
       </section>
 
-      {/* Get in Touch Section */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      {/* Get in Touch Section - Premium design */}
+      <section className="py-24 bg-[#f8f9fa]">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <FadeInSection>
-              <Image
-                src="/get-in-touch.png"
-                alt="Team collaborating in office"
-                width={600}
-                height={400}
-                className="rounded-lg shadow-lg"
-              />
-            </FadeInSection>
-            <FadeInSection delay={300}>
-              <div>
-                <h2 className="text-3xl md:text-4xl font-medium mb-6">Get in Touch</h2>
-                <p className="text-gray-600 mb-6">
-                  We're here to help. Whether you have questions about our services, need support with enforcement and
-                  debt recovery, or want to discuss a tailored solution for your organization, our expert team is ready
-                  to assist.
-                </p>
-                <Link href="/contact">
-                  <Button
-                    variant="default"
-                    className="bg-[#0d2c4b] hover:bg-[#164677] transition-colors animated-button"
-                  >
-                    Contact Us
-                  </Button>
-                </Link>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="relative">
+              <div className="absolute -top-6 -left-6 w-24 h-24 bg-[#3CAEA3]/10 rounded-lg"></div>
+              <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-[#3CAEA3]/10 rounded-lg"></div>
+              <div className="relative rounded-lg overflow-hidden shadow-xl">
+                <Image
+                  src="/get-in-touch.png"
+                  alt="Team collaborating in office"
+                  width={600}
+                  height={400}
+                  className="w-full h-auto"
+                />
               </div>
-            </FadeInSection>
+            </div>
+
+            <div>
+              <div className="inline-block bg-[#3CAEA3]/20 px-4 py-2 rounded-full mb-6">
+                <span className="text-[#3CAEA3] font-medium">Get in Touch</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-medium mb-6">Ready to Learn More?</h2>
+              <p className="text-gray-600 mb-8 leading-relaxed">
+                We're here to help. Whether you have questions about our services, need support with enforcement and
+                debt recovery, or want to discuss a tailored solution for your organization, our expert team is ready to
+                assist.
+              </p>
+              <Link href="/contact">
+                <IconButton
+                  icon="ArrowRight"
+                  variant="default"
+                  className="bg-[#0d2c4b] hover:bg-[#164677] transition-colors"
+                >
+                  Contact Us
+                </IconButton>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -154,131 +262,55 @@ export default function AboutPage() {
   )
 }
 
-function PoundIcon() {
-  return (
-    <div className="w-12 h-12 text-[#3CAEA3] mb-4">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <circle cx="12" cy="12" r="10" />
-        <path d="M8 12h4" />
-        <path d="M10 16V8" />
-        <path d="M14 12a2 2 0 0 0-4 0v4" />
-      </svg>
-    </div>
-  )
-}
-
-function BuildingIcon() {
-  return (
-    <div className="w-12 h-12 text-[#3CAEA3] mb-4">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <rect x="4" y="2" width="16" height="20" rx="2" ry="2" />
-        <path d="M9 22v-4h6v4" />
-        <path d="M8 6h.01" />
-        <path d="M16 6h.01" />
-        <path d="M12 6h.01" />
-        <path d="M12 10h.01" />
-        <path d="M12 14h.01" />
-        <path d="M16 10h.01" />
-        <path d="M16 14h.01" />
-        <path d="M8 10h.01" />
-        <path d="M8 14h.01" />
-      </svg>
-    </div>
-  )
-}
-
-function ServiceIcon() {
-  return (
-    <div className="w-12 h-12 text-[#3CAEA3] mb-4">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-        <polyline points="14 2 14 8 20 8" />
-        <line x1="16" y1="13" x2="8" y2="13" />
-        <line x1="16" y1="17" x2="8" y2="17" />
-        <polyline points="10 9 9 9 8 9" />
-      </svg>
-    </div>
-  )
-}
-
-function SystemIcon() {
-  return (
-    <div className="w-12 h-12 text-[#3CAEA3] mb-4">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-        <line x1="8" y1="21" x2="16" y2="21" />
-        <line x1="12" y1="17" x2="12" y2="21" />
-      </svg>
-    </div>
-  )
-}
-
+// Premium stat card component
 function StatCard({
   icon,
   value,
-  description,
+  label,
+  color,
 }: {
-  icon: React.ReactNode
+  icon: string
   value: string
-  description: string
+  label: string
+  color: string
 }) {
   return (
-    <Card className="p-6 flex flex-col items-center text-center h-full">
-      {icon}
-      <h3 className="text-3xl font-medium text-[#0d2c4b] mt-4 mb-2">{value}</h3>
-      <p className="text-gray-600">{description}</p>
-    </Card>
+    <div className="bg-white rounded-lg shadow-lg overflow-hidden h-full">
+      <div className={`${color} p-6 flex items-center justify-center`}>
+        <Icon name={icon} className="text-white w-10 h-10" />
+      </div>
+      <div className="p-6 text-center">
+        <div className="text-3xl font-medium mb-2">{value}</div>
+        <div className="text-gray-600">{label}</div>
+      </div>
+    </div>
   )
 }
 
+// Team member component
 function TeamMember({
   name,
   role,
   image,
+  delay = 0,
 }: {
   name: string
   role: string
   image: string
+  delay?: number
 }) {
   return (
-    <div className="flex flex-col items-center">
-      <div className="relative w-48 h-48 mb-4 overflow-hidden rounded-lg">
-        <Image src={image || "/placeholder.svg"} alt={name} fill className="object-cover" />
+    <FadeInSection delay={delay}>
+      <div className="bg-white rounded-lg shadow-lg overflow-hidden h-full hover:shadow-xl transition-shadow duration-300">
+        <div className="relative h-64">
+          <Image src={image || "/placeholder.svg"} alt={name} fill className="object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0d2c4b]/80 to-transparent"></div>
+        </div>
+        <div className="p-6 text-center">
+          <h3 className="text-xl font-medium mb-2">{name}</h3>
+          <p className="text-[#3CAEA3]">{role}</p>
+        </div>
       </div>
-      <h3 className="font-medium text-lg mb-1">{name}</h3>
-      <p className="text-gray-600 text-sm">{role}</p>
-    </div>
+    </FadeInSection>
   )
 }

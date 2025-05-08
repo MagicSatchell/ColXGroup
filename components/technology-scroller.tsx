@@ -223,7 +223,7 @@ export function TechnologyScroller() {
         <h2 className="text-3xl md:text-4xl font-medium mb-16 ml-4 md:ml-8 text-white">Our Technology</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <div className="space-y-8">
+          <div className="space-y-6">
             {techItems.map((item, index) => (
               <div
                 key={item.id}
@@ -242,15 +242,15 @@ export function TechnologyScroller() {
                   </div>
                 )}
 
-                <div className="w-full pl-6">
-                  {/* Logo */}
-                  <div className="mb-3">
-                    <div className="h-10 w-auto relative">
+                <div className="w-full pl-4">
+                  {/* Logo - smaller size */}
+                  <div className="mb-2">
+                    <div className="h-6 w-auto relative">
                       <Image
                         src={item.logoSrc || "/placeholder.svg"}
                         alt={`ColXSys logo`}
-                        width={180}
-                        height={40}
+                        width={120}
+                        height={24}
                         className="object-contain object-left"
                       />
                     </div>
@@ -259,10 +259,10 @@ export function TechnologyScroller() {
                   {/* Description - only visible for active item */}
                   <div
                     className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                      activeIndex === index ? "max-h-32 opacity-100 mt-3" : "max-h-0 opacity-0"
+                      activeIndex === index ? "max-h-24 opacity-100 mt-2" : "max-h-0 opacity-0"
                     }`}
                   >
-                    <p className="text-gray-300 max-w-sm font-normal">{item.description}</p>
+                    <p className="text-gray-300 max-w-sm font-normal text-sm">{item.description}</p>
                   </div>
                 </div>
               </div>

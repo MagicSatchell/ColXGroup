@@ -1,182 +1,266 @@
-import type React from "react"
+import Link from "next/link"
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import { ArrowRight } from "lucide-react"
-import AnimatedStatCard from "@/components/animated-stat-card"
 import { NewsScroller } from "@/components/news-scroller"
 import { TechnologyScroller } from "@/components/technology-scroller"
+import { FeaturedTimeline } from "@/components/featured-timeline"
+import { Icon } from "@/components/ui/icon"
+import { IconButton } from "@/components/ui/icon-button"
 import FadeInSection from "@/components/fade-in-section"
-import CountUp from "react-countup"
-
-const CountUpAnimation = ({
-  value,
-  prefix = "",
-  suffix = "",
-  className,
-}: { value: number; prefix?: string; suffix?: string; className?: string }) => {
-  return <CountUp start={0} end={value} duration={2} prefix={prefix} suffix={suffix} className={className} />
-}
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col">
-      {/* Hero Section */}
+      {/* Hero Section - More dramatic and premium */}
       <section className="relative bg-[#0d2c4b] text-white">
         <div className="absolute inset-0 z-0">
-          <Image src="/colx-desktop-bg.png" alt="Background" fill className="object-cover" priority />
+          <Image src="/colx-desktop-bg.png" alt="Hero Background" fill className="object-cover" priority />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0d2c4b]/90 to-[#0d2c4b]/70"></div>
         </div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 md:py-32 lg:py-40 relative z-10 text-center">
-          <FadeInSection>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-medium">
+        <div className="container mx-auto px-4 py-32 md:py-40 lg:py-48 relative z-10">
+          <div className="max-w-3xl">
+            <div className="inline-block bg-[#3CAEA3]/20 px-4 py-2 rounded-full mb-6">
+              <span className="text-[#3CAEA3] font-medium">Welcome to ColX Group</span>
+            </div>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-medium mb-6 leading-tight">
               Collect Smarter.
               <br />
               Not Harder.
             </h1>
-            <p className="max-w-2xl mx-auto text-gray-300 mb-8 text-base sm:text-lg mt-6">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ante nec ante placerat ultricies at
-              magna. Vestibulum sed consequat massa, eget fermentum lorem.
+            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+              We bring together decades of expertise to deliver innovative enforcement and debt recovery solutions that
+              prioritize efficiency, transparency, and fairness.
             </p>
-          </FadeInSection>
+            <div className="flex flex-wrap gap-4">
+              <Link href="/services">
+                <IconButton
+                  icon="ArrowRight"
+                  variant="default"
+                  className="bg-[#3CAEA3] hover:bg-[#2d8a80] text-white border-none"
+                >
+                  Explore Our Services
+                </IconButton>
+              </Link>
+              <Link href="/about">
+                <IconButton
+                  icon="Info"
+                  variant="outline"
+                  className="border-white text-white hover:bg-white/10"
+                  iconPosition="left"
+                >
+                  About Us
+                </IconButton>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-16 md:py-24 lg:py-32 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+      {/* Stats Section - Premium cards */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <FadeInSection>
               <StatCard
-                icon={<BarChartIcon />}
-                value="191"
-                prefix="€"
-                suffix="bn"
-                description="under management"
-                buttonText="About us"
+                icon="BarChart3"
+                value="£191bn"
+                label="under management"
+                color="bg-gradient-to-br from-[#3CAEA3] to-[#2d8a80]"
               />
             </FadeInSection>
             <FadeInSection delay={200}>
               <StatCard
-                icon={<LocationIcon />}
-                value="30"
-                description="global office locations"
-                buttonText="Our network"
+                icon="MapPin"
+                value="30+"
+                label="global office locations"
+                color="bg-gradient-to-br from-[#0d2c4b] to-[#164677]"
               />
             </FadeInSection>
             <FadeInSection delay={400}>
               <StatCard
-                icon={<SnowflakeIcon />}
+                icon="Snowflake"
                 value="7"
-                description="world class strategies"
-                buttonText="Our strategies"
+                label="world class strategies"
+                color="bg-gradient-to-br from-[#3CAEA3] to-[#2d8a80]"
               />
             </FadeInSection>
             <FadeInSection delay={600}>
               <StatCard
-                icon={<MoonIcon />}
-                value="130"
-                suffix="+"
-                description="Private Equity portfolio companies"
-                buttonText="Our portfolio"
+                icon="Users"
+                value="130+"
+                label="Private Equity portfolio companies"
+                color="bg-gradient-to-br from-[#0d2c4b] to-[#164677]"
               />
             </FadeInSection>
           </div>
         </div>
       </section>
 
-      {/* About Us Section */}
-      <section className="py-16 md:py-24 lg:py-32">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-            <FadeInSection>
-              <div className="relative w-full h-64 sm:h-80 md:h-96 lg:h-[400px]">
+      {/* About Us Section - Magazine style layout */}
+      <section className="py-24 bg-[#f8f9fa]">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="relative">
+              <div className="absolute -top-6 -left-6 w-24 h-24 bg-[#3CAEA3]/10 rounded-lg"></div>
+              <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-[#3CAEA3]/10 rounded-lg"></div>
+              <div className="relative rounded-lg overflow-hidden shadow-xl">
                 <Image
                   src="/sunset-cityscape-river.png"
                   alt="City skyline"
-                  fill
-                  className="rounded-lg shadow-lg object-cover"
+                  width={600}
+                  height={400}
+                  className="w-full h-auto"
                 />
               </div>
-            </FadeInSection>
-            <FadeInSection delay={300}>
-              <div>
-                <h2 className="text-3xl md:text-4xl font-medium mb-6">About Us</h2>
-                <p className="text-gray-600 mb-4">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ante nec ante placerat ultricies
-                  at magna. Vestibulum sed consequat massa, eget fermentum lorem.
-                </p>
-                <p className="text-gray-600 mb-6">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ante nec ante placerat ultricies
-                  at magna. Vestibulum sed consequat massa, eget fermentum lorem.
-                </p>
-                <Button variant="default" className="bg-[#0d2c4b] hover:bg-[#164677] transition-colors animated-button">
-                  Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
+            </div>
+
+            <div>
+              <div className="inline-block bg-[#3CAEA3]/20 px-4 py-2 rounded-full mb-6">
+                <span className="text-[#3CAEA3] font-medium">About Us</span>
               </div>
-            </FadeInSection>
+              <h2 className="text-3xl md:text-4xl font-medium mb-6">Excellence in Enforcement</h2>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                At ColX Group, we bring together the expertise of Jacobs, Equita, Ross & Roberts, and Stirling Park
+                under one dynamic umbrella, ensuring a seamless and effective approach to enforcement and debt recovery
+                across the UK.
+              </p>
+              <p className="text-gray-600 mb-8 leading-relaxed">
+                By combining industry-leading systems, local expertise, and a commitment to ethical enforcement, we
+                provide a truly unique service in today's arena.
+              </p>
+              <Link href="/about">
+                <IconButton
+                  icon="ArrowRight"
+                  variant="default"
+                  className="bg-[#0d2c4b] hover:bg-[#164677] transition-colors"
+                >
+                  Learn More
+                </IconButton>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Second Stats Section */}
-      <section className="py-16 md:py-24 lg:py-32 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-            <FadeInSection>
-              <AnimatedStatCard value={140} prefix="£" icon={<PoundIcon />} buttonText="Learn more" />
-            </FadeInSection>
-            <FadeInSection delay={200}>
-              <AnimatedStatCard value={6} icon={<DocumentIcon />} buttonText="Learn more" />
-            </FadeInSection>
-            <FadeInSection delay={400}>
-              <AnimatedStatCard value={200} icon={<GlobeIcon />} buttonText="Learn more" />
-            </FadeInSection>
-            <FadeInSection delay={600}>
-              <AnimatedStatCard value={100} suffix="+" icon={<UsersIcon />} buttonText="Learn more" />
-            </FadeInSection>
-          </div>
-        </div>
-      </section>
+      {/* Featured Timeline Section - More premium */}
+      <FeaturedTimeline />
 
-      {/* Technology Section - Updated to be a scroller with loading animations */}
+      {/* Technology Section - Already premium */}
       <FadeInSection>
         <TechnologyScroller />
       </FadeInSection>
 
-      {/* News Section - Replaced with NewsScroller */}
+      {/* Services Highlight Section - New premium section */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-block bg-[#3CAEA3]/20 px-4 py-2 rounded-full mb-6">
+              <span className="text-[#3CAEA3] font-medium">Our Services</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-medium mb-6">Comprehensive Service Portfolio</h2>
+            <p className="text-gray-600 leading-relaxed">
+              We offer a wide range of enforcement and debt recovery services designed to meet the unique needs of our
+              clients across various sectors.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <ServiceHighlight
+              title="Council Tax & Non-Domestic Rates"
+              icon="Building"
+              color="bg-gradient-to-br from-[#3CAEA3] to-[#2d8a80]"
+            />
+            <ServiceHighlight
+              title="Parking & Road Traffic PCN"
+              icon="Car"
+              color="bg-gradient-to-br from-[#0d2c4b] to-[#164677]"
+            />
+            <ServiceHighlight
+              title="Corporate Debt Recovery"
+              icon="BarChart3"
+              color="bg-gradient-to-br from-[#3CAEA3] to-[#2d8a80]"
+            />
+          </div>
+
+          <div className="text-center mt-12">
+            <Link href="/services">
+              <IconButton
+                icon="ArrowRight"
+                variant="outline"
+                className="border-[#3CAEA3] text-[#3CAEA3] hover:bg-[#3CAEA3] hover:text-white"
+              >
+                View All Services
+              </IconButton>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* News Section - Already premium */}
       <FadeInSection>
         <NewsScroller />
       </FadeInSection>
 
-      {/* Contact Section */}
-      <section className="py-32">
+      {/* Testimonial Section - New premium section */}
+      <section className="py-24 bg-[#0d2c4b] text-white">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <FadeInSection>
-              <Image
-                src="/get-in-touch.png"
-                alt="Team collaborating in office"
-                width={600}
-                height={400}
-                className="rounded-lg shadow-lg"
-              />
-            </FadeInSection>
-            <FadeInSection delay={300}>
-              <div>
-                <h2 className="text-3xl md:text-4xl font-medium mb-6">Get in Touch</h2>
-                <p className="text-gray-600 mb-4">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ante nec ante placerat ultricies
-                  at magna. Vestibulum sed consequat massa, eget fermentum lorem.
-                </p>
-                <p className="text-gray-600 mb-6">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ante nec ante placerat ultricies
-                  at magna. Vestibulum sed consequat massa, eget fermentum lorem.
-                </p>
-                <Button variant="default" className="bg-[#0d2c4b] hover:bg-[#164677] transition-colors animated-button">
-                  Contact Us <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="mb-8">
+              <Icon name="Quote" className="w-16 h-16 text-[#3CAEA3] mx-auto" />
+            </div>
+            <blockquote className="text-2xl md:text-3xl font-light italic mb-8 leading-relaxed">
+              "ColX Group's approach to enforcement has transformed our debt recovery process. Their ethical practices
+              and innovative solutions have delivered exceptional results for our organization."
+            </blockquote>
+            <div className="flex items-center justify-center">
+              <div className="w-16 h-16 rounded-full overflow-hidden mr-4">
+                <Image src="/person-laptop.jpeg" alt="Client" width={64} height={64} className="object-cover" />
               </div>
-            </FadeInSection>
+              <div className="text-left">
+                <p className="font-medium">Sarah Johnson</p>
+                <p className="text-[#3CAEA3]">Financial Director, City Council</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section - Premium design */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <div className="inline-block bg-[#3CAEA3]/20 px-4 py-2 rounded-full mb-6">
+                <span className="text-[#3CAEA3] font-medium">Get in Touch</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-medium mb-6">Ready to Transform Your Approach?</h2>
+              <p className="text-gray-600 mb-8 leading-relaxed">
+                Contact our team today to discuss how our services can help your organization achieve its goals. We're
+                committed to delivering solutions that drive results and exceed expectations.
+              </p>
+              <Link href="/contact">
+                <IconButton
+                  icon="ArrowRight"
+                  variant="default"
+                  className="bg-[#0d2c4b] hover:bg-[#164677] transition-colors"
+                >
+                  Contact Us
+                </IconButton>
+              </Link>
+            </div>
+
+            <div className="relative">
+              <div className="absolute -top-6 -left-6 w-24 h-24 bg-[#3CAEA3]/10 rounded-lg"></div>
+              <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-[#3CAEA3]/10 rounded-lg"></div>
+              <div className="relative rounded-lg overflow-hidden shadow-xl">
+                <Image
+                  src="/get-in-touch.png"
+                  alt="Team collaborating in office"
+                  width={600}
+                  height={400}
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -184,196 +268,54 @@ export default function Home() {
   )
 }
 
-function BarChartIcon() {
-  return (
-    <div className="w-12 h-12 text-[#3CAEA3]">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <line x1="18" y1="20" x2="18" y2="10"></line>
-        <line x1="12" y1="20" x2="12" y2="4"></line>
-        <line x1="6" y1="20" x2="6" y2="14"></line>
-      </svg>
-    </div>
-  )
-}
-
-function LocationIcon() {
-  return (
-    <div className="w-12 h-12 text-[#3CAEA3]">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-        <circle cx="12" cy="10" r="3"></circle>
-      </svg>
-    </div>
-  )
-}
-
-function SnowflakeIcon() {
-  return (
-    <div className="w-12 h-12 text-[#3CAEA3]">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M12 2v20M17 5l-5-3-5 3M17 19l-5 3-5-3M5 12H2M22 12h-3M19 5l-7 7M19 19l-7-7M5 5l7 7M5 19l7-7"></path>
-      </svg>
-    </div>
-  )
-}
-
-function MoonIcon() {
-  return (
-    <div className="w-12 h-12 text-[#3CAEA3]">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-      </svg>
-    </div>
-  )
-}
-
-function PoundIcon() {
-  return (
-    <div className="w-12 h-12 text-[#3CAEA3] mb-4">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <circle cx="12" cy="12" r="10" />
-        <path d="M8 12h4" />
-        <path d="M10 16V8" />
-        <path d="M14 12a2 2 0 0 0-4 0v4" />
-      </svg>
-    </div>
-  )
-}
-
-function DocumentIcon() {
-  return (
-    <div className="w-12 h-12 text-[#3CAEA3] mb-4">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-        <polyline points="14 2 14 8 20 8" />
-        <line x1="16" y1="13" x2="8" y2="13" />
-        <line x1="16" y1="17" x2="8" y2="17" />
-        <polyline points="10 9 9 9 8 9" />
-      </svg>
-    </div>
-  )
-}
-
-function GlobeIcon() {
-  return (
-    <div className="w-12 h-12 text-[#3CAEA3] mb-4">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <circle cx="12" cy="12" r="10" />
-        <line x1="2" y1="12" x2="22" y2="12" />
-        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-      </svg>
-    </div>
-  )
-}
-
-function UsersIcon() {
-  return (
-    <div className="w-12 h-12 text-[#3CAEA3] mb-4">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-        <circle cx="9" cy="7" r="4" />
-        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-      </svg>
-    </div>
-  )
-}
-
+// Premium stat card component
 function StatCard({
   icon,
   value,
-  prefix = "",
-  suffix = "",
-  description,
-  buttonText,
+  label,
+  color,
 }: {
-  icon: React.ReactNode
+  icon: string
   value: string
-  prefix?: string
-  suffix?: string
-  description: string
-  buttonText: string
+  label: string
+  color: string
 }) {
   return (
-    <Card className="p-6 flex flex-col items-center text-center h-full">
-      {icon}
-      <CountUpAnimation
-        value={Number.parseInt(value.replace(/[^\d]/g, ""), 10)}
-        prefix={prefix}
-        suffix={suffix}
-        className="text-3xl font-medium text-[#0d2c4b] mt-4"
-      />
-      <p className="text-gray-600 mb-6 flex-grow">{description}</p>
-      <Button
-        variant="outline"
-        className="text-[#3CAEA3] border-[#3CAEA3] hover:bg-[#3CAEA3] hover:text-white transition-colors animated-button mt-auto"
-      >
-        {buttonText}
-      </Button>
-    </Card>
+    <div className="bg-white rounded-lg shadow-lg overflow-hidden h-full">
+      <div className={`${color} p-6 flex items-center justify-center`}>
+        <Icon name={icon} className="text-white w-10 h-10" />
+      </div>
+      <div className="p-6 text-center">
+        <div className="text-3xl font-medium mb-2">{value}</div>
+        <div className="text-gray-600">{label}</div>
+      </div>
+    </div>
+  )
+}
+
+// Service highlight component
+function ServiceHighlight({
+  title,
+  icon,
+  color,
+}: {
+  title: string
+  icon: string
+  color: string
+}) {
+  return (
+    <Link href={`/services/${title.toLowerCase().replace(/\s+/g, "-")}`}>
+      <div className="bg-white rounded-lg shadow-lg overflow-hidden h-full hover:shadow-xl transition-shadow duration-300">
+        <div className={`${color} p-6 flex items-center justify-center`}>
+          <Icon name={icon} className="text-white w-10 h-10" />
+        </div>
+        <div className="p-6 text-center">
+          <h3 className="text-xl font-medium mb-4">{title}</h3>
+          <div className="inline-flex items-center text-[#3CAEA3] font-medium">
+            Learn more <Icon name="ArrowRight" className="ml-2 w-4 h-4" />
+          </div>
+        </div>
+      </div>
+    </Link>
   )
 }
