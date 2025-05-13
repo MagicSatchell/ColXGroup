@@ -9,6 +9,7 @@ interface CountUpAnimationProps {
   suffix?: string
   duration?: number
   className?: string
+  decimals?: number
 }
 
 export default function CountUpAnimation({
@@ -17,6 +18,7 @@ export default function CountUpAnimation({
   suffix = "",
   duration = 2000,
   className = "",
+  decimals = 0,
 }: CountUpAnimationProps) {
   const [count, setCount] = useState(0)
   const [ref, inView] = useInView({
@@ -38,7 +40,7 @@ export default function CountUpAnimation({
       // Calculate the current count based on progress
       const percentage = Math.min(progress / duration, 1)
       const easedPercentage = easeOutQuad(percentage)
-      const currentCount = Math.floor(easedPercentage * value)
+      const currentCount = easedPercentage * value
 
       setCount(currentCount)
 
@@ -62,11 +64,14 @@ export default function CountUpAnimation({
   // Easing function for smoother animation
   const easeOutQuad = (t: number): number => t * (2 - t)
 
+  // Format the number with the specified number of decimal places
+  const formattedCount = decimals > 0 ? count.toFixed(decimals) : Math.floor(count).toString()
+
   return (
-    <div ref={ref} className={className}>
+    <span ref={ref} className={className}>
       {prefix}
-      {count}
+      {formattedCount}
       {suffix}
-    </div>
+    </span>
   )
 }

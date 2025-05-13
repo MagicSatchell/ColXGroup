@@ -30,7 +30,7 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 bg-[#0d2c4b] text-white transition-all duration-300 ${scrolled ? "shadow-md py-2" : "py-4"}`}
+      className={`sticky top-0 z-50 text-white transition-all duration-300 ${scrolled ? "shadow-md py-2 bg-[#0d2c4b]" : "py-4"}`}
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         <div className="flex items-center">
